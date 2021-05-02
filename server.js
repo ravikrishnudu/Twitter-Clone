@@ -1,6 +1,13 @@
 const express = require("express");
-const { createUser, getUsers, createTweet, getTweets } = require("./handler");
-const { User, Tweets } = require("./Model");
+const {
+  createUser,
+  getUsers,
+  createTweet,
+  getTweets,
+  createLike,
+  getLikes,
+} = require("./handler");
+const { User, Tweet, Like } = require("./Model");
 
 const PORT = 8000;
 //middleware
@@ -28,20 +35,19 @@ app.patch("/user/:id", function (req, res) {
   });
 });
 
-app.delete("/user/:id", function (req, res) {
+app.delete("/user/:id", async (req, res) => {
   let { id } = req.params;
-  User.findByPk(id).then((user) => {
-    user.destroy().then(() => {
-      res.json(user);
-    });
+  const user = await User.destroy({
+    where: { id },
   });
+  console.log(user);
+  res.json({ msg: "user deleted" });
 });
 
 // Tweets
 app.post("/tweet", async (req, res) => {
   const tweet = await createTweet(req.body);
   res.status(201).json(tweet);
-  // res.json({ msg: "why didnt you get posts" });
 });
 
 app.get("/tweet", async (req, res) => {
@@ -49,14 +55,33 @@ app.get("/tweet", async (req, res) => {
   res.json(tweets);
 });
 
-app.delete("/tweets/:id", function (req, res) {
+app.delete("/tweet/:id", async (req, res) => {
   let { id } = req.params;
-  Tweets.findByPk(id).then((tweet) => {
-    tweet.destroy().then(() => {
-      res.json(tweet);
-    });
+  const tweet = await Tweet.destroy({
+    where: { id },
   });
+  console.log(tweet);
+  res.json({ msg: "tweet deleted" });
 });
+// Likes;
+app.post("/like", async (req, res) => {
+  const like = await createLike(req.body);
+  res.status(201).json(like);
+});
+app.get("/like/:tweetId", async (req, res) => {
+  const likes = await getLikes();
+  res.json(likes);
+});
+
+app.delete("/like/:tweetId", async (req, res) => {
+  let { tweetId } = req.params;
+  const like = await Like.destroy({
+    where: { tweetId },
+  });
+  console.log(like);
+  res.json({ msg: "like deleted" });
+});
+//follower
 
 app.listen(PORT, () => {
   console.log(`server stated on ${PORT}`);
