@@ -1,0 +1,101 @@
+.body {
+  display: flex;
+}
+.userFields {
+  display: flex;
+  margin-top: 15px;
+  margin-left: 20px;
+}
+.userInput {
+  width: 225px;
+  height: 65px;
+  border: 1px solid rgb(196, 207, 214);
+  border-radius: 4px;
+  margin-right: 15px;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 24px;
+  color: rgb(91, 112, 131);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  padding-left: 8px;
+  padding-right: 8px;
+  display: flex;
+  justify-content: space-between;
+  outline: none;
+}
+.userInput:focus {
+  border-color: rgb(29, 161, 242);
+}
+.userLogin {
+  background-color: white;
+  color: rgb(29, 161, 242);
+  font-size: 15px;
+  width: 112px;
+  height: 48px;
+  margin-top: 10px;
+  border: 1px solid rgb(29, 161, 242);
+  border-radius: 50px;
+  cursor: pointer;
+}
+.fogetPassword {
+  margin-left: 12px;
+  margin-top: 4px;
+  font-size: 13px;
+  line-height: 16px;
+  font-weight: 400;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  cursor: pointer;
+  color: rgb(29, 161, 242);
+}
+.mainText {
+  font-size: 64px;
+  font-weight: 700;
+  font-family: TwitterChirpExtendedHeavy, Verdana, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: rgb(15, 20, 25);
+  margin-top: 300px;
+  margin-bottom: 48px;
+}
+.titleText {
+  margin-bottom: 32px;
+  line-height: 36px;
+  font-size: 31px;
+  font-family: TwitterChirpExtendedHeavy, Verdana, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 700;
+}
+.bodyText {
+  margin-left: 20px;
+}
+.divSignUp {
+  margin-bottom: 10px;
+}
+.signUp {
+  font-size: 15px;
+  width: 350px;
+  height: 50px;
+  margin-top: 10px;
+  border: 1px solid rgb(29, 161, 242);
+  border-radius: 50px;
+  background-color: rgb(29, 161, 242);
+  cursor: pointer;
+  color: rgb(225, 225, 225);
+  font-weight: 700;
+}
+
+.logIn {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  background-color: white;
+  color: rgb(29, 161, 242);
+  font-size: 15px;
+  width: 350px;
+  height: 50px;
+  margin-top: 10px;
+  border: 1px solid rgb(29, 161, 242);
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 700;
+}
