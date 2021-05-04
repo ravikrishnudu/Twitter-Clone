@@ -1,0 +1,91 @@
+.NewTweet {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+.Tweet {
+  display: flex;
+  border: 1px solid rgb(222, 228, 231);
+  width: 510px;
+  padding: 10px;
+}
+.profileImage {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+}
+.body {
+  margin-left: 20px;
+}
+
+.whatHappening {
+  font-size: 22px;
+  font-weight: 400;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  line-height: 24px;
+  color: #5b7083;
+  padding: 12px 0px;
+  box-sizing: border-box;
+  border: 0.1px solid transparent;
+  outline-style: none;
+}
+
+.tweetView {
+  display: flex;
+  align-items: center;
+  color: rgba(29, 161, 242, 1);
+  padding-bottom: 12px;
+  cursor: pointer;
+  /* margin-left: 7px; */
+}
+.globe {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-left: 10px;
+}
+.everyone {
+  font-size: 15px;
+  font-family: 700;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  margin-left: 6px;
+}
+.footer {
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid rgb(222, 228, 231);
+  /* align-items: center; */
+  /* padding: 10px; */
+}
+
+.logos {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 15px;
+}
+.logoSvg {
+  color: rgba(29, 161, 242, 1);
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-left: 18px;
+}
+.tweetButton {
+  margin-top: 8px;
+  margin-left: 135px;
+  /* display: flex; */
+  /* justify-content: flex-end; */
+}
+.twetButton {
+  background-color: rgba(29, 161, 242, 1);
+  border: 1px solid rgb(29, 161, 242);
+  border-radius: 50px;
+  cursor: pointer;
+  color: rgb(225, 225, 225);
+  /* height: 50px; */
+  width: 90px;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 10px;
+}

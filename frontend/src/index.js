@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import App from "./components/App";
+import NewTweet from "./components/NewTweet";
 import Tweets from "./components/Tweets";
 
 function Main() {
@@ -15,6 +16,9 @@ function Main() {
         <Route path="/tweets/:number" component={Tweets} />
         <Route path="/tweets">
           <Tweets />
+        </Route>
+        <Route path="/newtweet" component={NewTweet}>
+          <NewTweet />
         </Route>
       </Switch>
     </Router>

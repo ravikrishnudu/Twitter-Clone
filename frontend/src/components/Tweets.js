@@ -7,11 +7,6 @@ async function getTweets() {
     return res.json();
   });
 }
-function SideBar() {
-  return <>{/* <div>Home</div>
-      <div></div>
-      <div>Home</div> */}</>;
-}
 
 function Tweet({ tweet }) {
   return (
@@ -30,7 +25,6 @@ function Tweet({ tweet }) {
             <button className={styles.tweetButtons}>Like</button>
             <button className={styles.tweetButtons}>Share</button>
           </div>
-          {/* <div>{tweet.userId}</div> */}
         </div>
       </div>
     </>
@@ -51,11 +45,9 @@ export default function Tweets() {
   console.log(tweets);
   return (
     <div>
-      <SideBar />
       {tweets.map((tweet) => (
         <Tweet tweet={tweet} key={tweet.id} />
       ))}
-      {/* <h1>get tweets by user name</h1> */}
     </div>
   );
 }
