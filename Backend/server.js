@@ -23,7 +23,7 @@ app.use(cors());
 
 app.post("/user", async (req, res) => {
   // res.json({ msg: "hello" });
-  console.log(req.body);
+  // console.log(req.body);
   const user = await createUser(req.body);
   console.log(user);
   res.status(201).json(user);
