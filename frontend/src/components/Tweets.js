@@ -1,12 +1,41 @@
 import React, { useState, useEffect } from "react";
+import styles from "./Tweets.module.css";
 
 async function getTweets() {
-  return fetch(`http://localhost:8000/tweets?username=ravi`).then((res) => {
+  return fetch(`http://localhost:8000/tweets?username=""`).then((res) => {
     console.log(res);
-    res.json();
+    return res.json();
   });
 }
+function SideBar() {
+  return <>{/* <div>Home</div>
+      <div></div>
+      <div>Home</div> */}</>;
+}
 
+function Tweet({ tweet }) {
+  return (
+    <>
+      <div className={styles.card}>
+        <div className={styles.tweetCard}>
+          <div className={styles.userNameId}>
+            <div className={styles.name}>Jack Ryan</div>
+            <div className={styles.userName}>@jackryan</div>
+            <div className={styles.options}>...</div>
+          </div>
+          <div className={styles.tweetText}>{tweet.text}</div>
+          <div className={styles.buttons}>
+            <button className={styles.tweetButtons}>Comment</button>
+            <button className={styles.tweetButtons}>ReTweet</button>
+            <button className={styles.tweetButtons}>Like</button>
+            <button className={styles.tweetButtons}>Share</button>
+          </div>
+          {/* <div>{tweet.userId}</div> */}
+        </div>
+      </div>
+    </>
+  );
+}
 export default function Tweets() {
   const [tweets, setTweets] = useState(null);
 
@@ -15,10 +44,18 @@ export default function Tweets() {
       setTweets(tweets);
     });
   }, []);
+
+  if (!tweets) {
+    return <div>Loading..</div>;
+  }
   console.log(tweets);
   return (
     <div>
-      <h1>get tweets by id</h1>
+      <SideBar />
+      {tweets.map((tweet) => (
+        <Tweet tweet={tweet} key={tweet.id} />
+      ))}
+      {/* <h1>get tweets by user name</h1> */}
     </div>
   );
 }
