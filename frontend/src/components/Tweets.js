@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import styles from "./Tweets.module.css";
 
-async function getTweets() {
-  return fetch(`http://localhost:8000/tweets?username=""`).then((res) => {
-    console.log(res);
-    return res.json();
-  });
+async function getTweets(username) {
+  return fetch(`http://localhost:8000/tweets?username=${username}`).then(
+    (res) => {
+      console.log(res);
+      return res.json();
+    }
+  );
 }
 
 function Tweet({ tweet }) {
@@ -33,8 +36,10 @@ function Tweet({ tweet }) {
 export default function Tweets() {
   const [tweets, setTweets] = useState(null);
 
+  let { username } = useParams();
+  console.log(username);
   useEffect(() => {
-    getTweets().then((tweets) => {
+    getTweets(username).then((tweets) => {
       setTweets(tweets);
     });
   }, []);

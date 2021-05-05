@@ -13,12 +13,14 @@ function Main() {
         <Route exact path="/">
           <App />
         </Route>
-        <Route path="/tweets/:number" component={Tweets} />
-        <Route path="/tweets">
+        <Route path="/tweets/new">
+          <NewTweet />
+        </Route>
+        <Route exact path="/tweets/:username">
           <Tweets />
         </Route>
-        <Route path="/newtweet" component={NewTweet}>
-          <NewTweet />
+        <Route path="/tweets">
+          <Tweets />
         </Route>
       </Switch>
     </Router>
