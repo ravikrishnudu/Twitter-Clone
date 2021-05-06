@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+
 import styles from "./Tweets.module.css";
 
 async function getTweets(username) {
@@ -15,7 +16,7 @@ function Tweet({ tweet }) {
   return (
     <>
       <div className={styles.card}>
-        <div className={styles.tweetCard}>
+        <Link className={styles.tweetCard} to={`/tweets/username/${tweet.id}`}>
           <div className={styles.userNameId}>
             <div className={styles.name}>Jack Ryan</div>
             <div className={styles.userName}>@jackryan</div>
@@ -28,7 +29,7 @@ function Tweet({ tweet }) {
             <button className={styles.tweetButtons}>Like</button>
             <button className={styles.tweetButtons}>Share</button>
           </div>
-        </div>
+        </Link>
       </div>
     </>
   );
@@ -37,7 +38,7 @@ export default function Tweets() {
   const [tweets, setTweets] = useState(null);
 
   let { username } = useParams();
-  console.log(username);
+  // console.log(username);
   useEffect(() => {
     getTweets(username).then((tweets) => {
       setTweets(tweets);
