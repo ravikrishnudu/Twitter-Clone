@@ -10,7 +10,7 @@ function NewTweet() {
     const tweet = {
       text: body,
     };
-    fetch("http://localhost:8000/tweet", {
+    fetch(`${process.env.REACT_APP_API_URL}/tweet`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

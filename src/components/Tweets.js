@@ -4,19 +4,20 @@ import TweetCard from "./TweetCard";
 
 async function getTweets(username) {
   if (username) {
-    return fetch(`http://localhost:8000/tweets?username=${username}`).then(
-      (res) => {
-        console.log(res);
-        return res.json();
-      }
-    );
+    return fetch(
+      `${process.env.REACT_APP_API_URL}/tweets?username=${username}`
+    ).then((res) => {
+      console.log(res);
+      return res.json();
+    });
   } else {
-    return fetch(`http://localhost:8000/tweets`).then((res) => {
+    return fetch(`${process.env.REACT_APP_API_URL}/tweets`).then((res) => {
       console.log(res);
       return res.json();
     });
   }
 }
+
 export default function Tweets() {
   const [tweets, setTweets] = useState("");
 

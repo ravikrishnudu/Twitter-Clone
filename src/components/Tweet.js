@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import TweetCard from "./TweetCard";
 
 async function getTweet(id) {
-  return fetch(`http://localhost:8000/tweets?id=${id}`).then((res) =>
+  return fetch(`${process.env.REACT_APP_API_URL}/tweets?id=${id}`).then((res) =>
     res.json()
   );
 }
