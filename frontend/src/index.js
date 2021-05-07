@@ -20,11 +20,9 @@ function Main() {
         <Route exact path="/tweets/:username/:id">
           <Tweet />
         </Route>
-
         <Route path="/tweets/:username">
           <Tweets />
         </Route>
-
         <Route path="/tweets">
           <Tweets />
         </Route>
