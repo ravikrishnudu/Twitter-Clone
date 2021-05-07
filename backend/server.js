@@ -57,15 +57,18 @@ app.post("/tweet", async (req, res) => {
 });
 
 app.get("/tweets", async (req, res) => {
-  const { username } = req.query;
-  const tweets = await getTweets(username);
+  const { username, id } = req.query;
+  const tweets = await getTweets(username, id);
   res.json(tweets);
 });
 
-// app.get("/tweet/?username='ravi'", async (req, res) => {
-//   const tweets = await getTweets(req.query.username);
-//   console.dir(req.query.username);
-//   res.json(tweets);
+// app.get("/tweet/:id", async (req, res) => {
+//   let { id } = req.params;
+//   const tweet = await Tweet.findOne({
+//     where: { id },
+//   });
+//   console.log(tweet);
+//   res.json(tweet);
 // });
 
 app.delete("/tweet/:id", async (req, res) => {
@@ -76,6 +79,7 @@ app.delete("/tweet/:id", async (req, res) => {
   console.log(tweet);
   res.json({ msg: "tweet deleted" });
 });
+
 // Likes;
 app.post("/like", async (req, res) => {
   const like = await createLike(req.body);
@@ -94,6 +98,7 @@ app.delete("/like/:tweetId", async (req, res) => {
   console.log(like);
   res.json({ msg: "like deleted" });
 });
+
 //follower
 // app.post("/follower", async (req, res) => {
 //   const follower = await createFollower(req.body);

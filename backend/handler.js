@@ -16,14 +16,13 @@ async function createTweet(data) {
   return tweet.toJSON();
 }
 
-async function getTweets(username) {
+async function getTweets(username, id) {
   let query, user;
   if (username) {
     user = await User.findOne({ where: { username } });
-  }
-  console.log(user);
-  if (user) {
     query = { where: { userId: user.id } };
+  } else if (id) {
+    query = { where: { id } };
   } else {
     query = {};
   }

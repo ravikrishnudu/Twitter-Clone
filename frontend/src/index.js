@@ -17,7 +17,10 @@ function Main() {
         <Route path="/tweets/new">
           <NewTweet />
         </Route>
-        <Route exact path="/tweets/:username/:id" component={Tweet} />
+        <Route exact path="/tweets/:username/:id">
+          <Tweet />
+        </Route>
+
         <Route path="/tweets/:username">
           <Tweets />
         </Route>

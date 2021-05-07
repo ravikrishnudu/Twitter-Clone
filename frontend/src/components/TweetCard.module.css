@@ -1,0 +1,63 @@
+.card {
+  display: flex;
+  justify-content: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 400;
+  margin-bottom: 6px;
+}
+.card :hover {
+  background-color: rgb(242, 245, 247);
+}
+.tweetCard {
+  border: 1px solid rgb(196, 207, 214);
+  width: 750px;
+  text-decoration: none;
+}
+.userNameId {
+  display: flex;
+  padding: 5px;
+  margin-top: 8fropx;
+}
+.name {
+  font-weight: 700;
+  color: rgb(15, 20, 25);
+  margin-left: 25px;
+}
+
+.userName {
+  font-weight: 400;
+  color: rgb(91, 112, 131);
+  margin-left: 10px;
+}
+.options {
+  color: rgb(91, 112, 131);
+  margin-left: 540px;
+  font-weight: 700;
+  font-size: 15px;
+}
+.tweetText {
+  color: rgb(15, 20, 25);
+  padding: 8px;
+  margin-left: 25px;
+  text-decoration: none;
+}
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  font-size: 15px;
+  padding: 8px;
+  background-color: white;
+  border-style: none;
+  outline: none;
+  border-radius: 1px solid lightpink;
+}
+.tweetButtons {
+  font-size: 15px;
+  padding: 8px;
+  background-color: white;
+  border-style: none;
+  border-radius: 1px solid lightpink;
+}
