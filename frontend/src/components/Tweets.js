@@ -3,14 +3,20 @@ import { useParams } from "react-router-dom";
 import TweetCard from "./TweetCard";
 
 async function getTweets(username) {
-  return fetch(`http://localhost:8000/tweets?username=${username}`).then(
-    (res) => {
+  if (username) {
+    return fetch(`http://localhost:8000/tweets?username=${username}`).then(
+      (res) => {
+        console.log(res);
+        return res.json();
+      }
+    );
+  } else {
+    return fetch(`http://localhost:8000/tweets`).then((res) => {
       console.log(res);
       return res.json();
-    }
-  );
+    });
+  }
 }
-
 export default function Tweets() {
   const [tweets, setTweets] = useState("");
 

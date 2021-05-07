@@ -1,15 +1,12 @@
 import React from "react";
 import styles from "./TweetCard.module.css";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function TweetCard({ tweet }) {
   return (
     <div>
       <div className={styles.card}>
-        <div
-          className={styles.tweetCard}
-          // to={`/tweets/username/${tweet.id}`}
-        >
+        <Link className={styles.tweetCard} to={`/tweets/username/${tweet.id}`}>
           <div className={styles.userNameId}>
             <div className={styles.name}>Jack Ryan</div>
             <div className={styles.userName}>@jackryan</div>
@@ -22,7 +19,7 @@ function TweetCard({ tweet }) {
             <button className={styles.tweetButtons}>Like</button>
             <button className={styles.tweetButtons}>Share</button>
           </div>
-        </div>
+        </Link>
       </div>
     </div>
   );
