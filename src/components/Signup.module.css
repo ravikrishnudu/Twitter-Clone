@@ -11,3 +11,16 @@
   border-bottom: 1px solid rgb(196, 207, 214);
   outline-style: none;
 }
+.signupButton {
+  font-size: 15px;
+  width: 125px;
+  height: 48px;
+  margin-top: 10px;
+  margin-left: 70px;
+  border: 1px solid rgb(29, 161, 242);
+  border-radius: 50px;
+  background-color: rgb(29, 161, 242);
+  cursor: pointer;
+  color: rgb(225, 225, 225);
+  font-weight: 700;
+}

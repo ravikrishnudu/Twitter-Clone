@@ -5,7 +5,7 @@ import Signup from "./Signup";
 
 export default function App() {
   return (
-    <>
+    <form onSubmit={}>
       <div className={styles.body}>
         <div>
           <img className={styles.image} src={image} alt="mainImage" />
@@ -46,11 +46,10 @@ export default function App() {
 
             <div className={styles.userSignup}>
               <Signup />
-              <button className={styles.signupButton}>Sign up</button>
             </div>
           </div>
         </div>
       </div>
-    </>
+    </form>
   );
 }

@@ -39,13 +39,13 @@ function NewTweet() {
               <div>
                 <input
                   className={styles.whatHappening}
-                  // type="text"
+                  type="text"
                   value={body}
                   placeholder="What's happening?"
                   onChange={(event) => setBody(event.target.value)}
                 />
               </div>
-              {/* globe        */}
+              {/* globe */}
               <div className={styles.tweetView}>
                 <div className={styles.globe}>
                   <svg
