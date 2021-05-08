@@ -9,6 +9,7 @@ function NewTweet() {
     event.preventDefault();
     const tweet = {
       text: body,
+      userId: 1,
     };
     fetch(`${process.env.REACT_APP_API_URL}/tweet`, {
       method: "POST",
