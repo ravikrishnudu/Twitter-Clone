@@ -7,7 +7,7 @@ function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const Signup = async (event) => {
+  const handleSignUp = async (event) => {
     event.preventDefault();
     const user = {
       name: name,
@@ -31,7 +31,7 @@ function Signup() {
       });
   };
   return (
-    <form onSubmit={Signup}>
+    <form onSubmit={handleSignUp}>
       <div>
         <div className={styles.signupField}>
           <input
