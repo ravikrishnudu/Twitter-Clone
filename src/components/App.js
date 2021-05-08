@@ -19,23 +19,20 @@ export default function App() {
       username: username,
       password: password,
     };
-    fetch(`${process.env.REACT_APP_API_URL}/login`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(user),
-    })
-      .then((res) => res.json)
-      // .then( if (response.status === 200) {
-      //   history.push("/tweets");
-      // })
-      .then((data) => {
-        console.log("Success:", data);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
+    try {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
       });
+      if (response.status === 200) {
+        history.push("/tweets");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
