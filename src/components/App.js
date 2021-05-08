@@ -1,6 +1,7 @@
 import styles from "./App.module.css";
 import image from "./twitter.png";
 import logo from "./birdlogo.png";
+import Signup from "./Signup";
 
 export default function App() {
   return (
@@ -44,36 +45,7 @@ export default function App() {
             </div>
 
             <div className={styles.userSignup}>
-              <div className={styles.signupFields}>
-                <div className={styles.signupField}>
-                  <input
-                    className={styles.signupInputField}
-                    type="text"
-                    placeholder="Enter Your Name"
-                  />
-                </div>
-                <div className={styles.signupField}>
-                  <input
-                    className={styles.signupInputField}
-                    type="text"
-                    placeholder="Enter Your Username"
-                  />
-                </div>
-                <div className={styles.signupField}>
-                  <input
-                    className={styles.signupInputField}
-                    type="text"
-                    placeholder="Mobile number or email address"
-                  />
-                </div>
-                <div className={styles.signupField}>
-                  <input
-                    className={styles.signupInputField}
-                    type="text"
-                    placeholder="Enter Your Name"
-                  />
-                </div>
-              </div>
+              <Signup />
               <button className={styles.signupButton}>Sign up</button>
             </div>
           </div>

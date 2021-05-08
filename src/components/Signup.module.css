@@ -1,0 +1,13 @@
+.signupField {
+  margin-bottom: 10px;
+}
+.signupInputField {
+  color: rgb(91, 112, 131);
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 20px;
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid rgb(196, 207, 214);
+  outline-style: none;
+}
