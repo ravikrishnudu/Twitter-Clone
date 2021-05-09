@@ -9,9 +9,7 @@ export default function App() {
   const history = useHistory();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const handleClick = () => {
-    history.push("/tweets");
-  };
+
   const handleLogin = async (event) => {
     event.preventDefault();
 
@@ -65,9 +63,7 @@ export default function App() {
               <div className={styles.fogetPassword}>Forget Passord?</div>
             </div>
             <div>
-              <button className={styles.loginButton} onClick={handleClick}>
-                Log in
-              </button>
+              <button className={styles.loginButton}>Log in</button>
             </div>
           </div>
         </form>
