@@ -5,20 +5,44 @@ import "@reach/listbox/styles.css";
 import { AiOutlineRetweet } from "react-icons/ai";
 import { IoShareOutline } from "react-icons/io5";
 import { FaRegHeart, FaRegComment } from "react-icons/fa";
+
 import styles from "./TweetCard.module.css";
 
-function TweetCard({ tweet, fetchTweets }) {
+function TweetCard({ tweet, user, fetchTweets }) {
   const handleDelete = () => {
     const deleteTweet = {
       id: tweet.id,
     };
     try {
+      // const response =
       fetch(`${process.env.REACT_APP_API_URL}/tweet/${tweet.id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(deleteTweet),
+      });
+      // if (response.status === 201) {
+      //   fetchTweets();
+      // }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const likeTweet = async () => {
+    const data = {
+      tweetId: tweet.id,
+      userId: user.id,
+    };
+
+    try {
+      fetch(`${process.env.REACT_APP_API_URL}/like`, {
+        method: "POST",
+        headers: {
+          Content_type: "application.json",
+        },
+        body: JSON.stringify(data),
       });
     } catch (error) {
       console.log(error);
@@ -51,11 +75,10 @@ function TweetCard({ tweet, fetchTweets }) {
             <button className={styles.tweetButtons}>
               <AiOutlineRetweet />
             </button>
-            <button className={styles.tweetButtons}>
-              <FaRegHeart />{" "}
+            <button className={styles.tweetButtons} onClick={likeTweet}>
+              <FaRegHeart />
             </button>
             <button className={styles.tweetButtons}>
-              {" "}
               <IoShareOutline />
             </button>
           </div>

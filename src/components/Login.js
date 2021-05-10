@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-// import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import styles from "./Login.module.css";
 
 function Login() {
-  // const history = useHistory();
+  const history = useHistory();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -12,21 +12,20 @@ function Login() {
 
     const user = {
       username: username,
-
       password: password,
     };
     try {
-      //   const response =
-      await fetch(`${process.env.REACT_APP_API_URL}/login`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(user),
       });
-      // if (response.status === 200) {
-      //   history.push("/tweets");
-      // }
+      localStorage.setItem("user", JSON.stringify());
+      if (response.status === 200) {
+        history.push("/tweets");
+      }
     } catch (error) {
       console.log(error);
     }

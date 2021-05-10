@@ -76,36 +76,3 @@ function Signup() {
 }
 
 export default Signup;
-
-// export default function Login({ setUser, user }) {
-//   const history = useHistory();
-//   const [email, setEmail] = useState('');
-//   const [password, setPassword] = useState('');
-
-//   if (user) {
-//     const { username } = user;
-//     history.push(`/timeline/${username}`);
-//   }
-
-//   const handleLogin = async (e) => {
-//     e.preventDefault();
-//     const API_URL = 'http://localhost:8000';
-//     const data = { email, password };
-//     try {
-//       const response = await fetch(`${API_URL}/login`, {
-//         method: 'POST',
-//         headers: {
-//           'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify(data),
-//       });
-//       const res = await response.json();
-//       if (response.status === 200) {
-//         localStorage.setItem('user', JSON.stringify(res));
-//         setUser(res);
-//         history.push(`/timeline/${res.username}`);
-//       }
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   };
