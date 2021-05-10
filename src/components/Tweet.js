@@ -13,10 +13,19 @@ export default function Tweet() {
 
   let { id } = useParams();
   console.log(id);
-  useEffect(() => {
+  // useEffect(() => {
+  //   getTweet(id).then((tweet) => {
+  //     setTweet(tweet);
+  //   });
+  // }, []);
+  const fetchTweets = () => {
     getTweet(id).then((tweet) => {
       setTweet(tweet);
     });
+  };
+
+  useEffect(() => {
+    fetchTweets();
   }, []);
 
   console.log(tweet);

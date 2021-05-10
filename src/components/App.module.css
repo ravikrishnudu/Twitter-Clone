@@ -11,17 +11,17 @@
   width: 1165px;
   height: 1062px;
 }
-.Login {
-  font-size: 20px;
-  color: rgb(29, 161, 242);
-  margin-bottom: 8px;
-}
+
 .userFields {
   /* padding: 50px; */
   margin-left: 50px;
   margin-top: 40px;
 }
-
+.Login {
+  font-size: 20px;
+  color: rgb(29, 161, 242);
+  margin-bottom: 8px;
+}
 .loginFields {
   display: flex;
 }
