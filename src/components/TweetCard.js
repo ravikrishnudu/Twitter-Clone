@@ -8,13 +8,13 @@ import { FaRegHeart, FaRegComment } from "react-icons/fa";
 
 import styles from "./TweetCard.module.css";
 
-function TweetCard({ tweet, user, fetchTweets }) {
+function TweetCard({ tweet }) {
+  const user = localStorage.getItem("user");
   const handleDelete = () => {
     const deleteTweet = {
       id: tweet.id,
     };
     try {
-      // const response =
       fetch(`${process.env.REACT_APP_API_URL}/tweet/${tweet.id}`, {
         method: "DELETE",
         headers: {
@@ -22,9 +22,6 @@ function TweetCard({ tweet, user, fetchTweets }) {
         },
         body: JSON.stringify(deleteTweet),
       });
-      // if (response.status === 201) {
-      //   fetchTweets();
-      // }
     } catch (error) {
       console.log(error);
     }

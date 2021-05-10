@@ -22,8 +22,9 @@ function Login() {
         },
         body: JSON.stringify(user),
       });
-      localStorage.setItem("user", JSON.stringify());
       if (response.status === 200) {
+        const res = await response.json();
+        localStorage.setItem("user", JSON.stringify(res));
         history.push("/tweets");
       }
     } catch (error) {
