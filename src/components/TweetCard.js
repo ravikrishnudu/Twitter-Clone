@@ -1,30 +1,30 @@
 import React from "react";
-import styles from "./TweetCard.module.css";
 import { Link } from "react-router-dom";
 import { Listbox, ListboxOption } from "@reach/listbox";
 import "@reach/listbox/styles.css";
+import { AiOutlineRetweet } from "react-icons/ai";
+import { IoShareOutline } from "react-icons/io5";
+import { FaRegHeart, FaRegComment } from "react-icons/fa";
+import styles from "./TweetCard.module.css";
 
 function TweetCard({ tweet, fetchTweets }) {
   const handleDelete = () => {
     const deleteTweet = {
       id: tweet.id,
     };
-
-    fetch(`${process.env.REACT_APP_API_URL}/tweet/${tweet.id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(deleteTweet),
-    })
-      .then((data) => {
-        console.log("Succes:", data);
-        fetchTweets();
-      })
-      .catch((error) => {
-        console.error("Error:", error);
+    try {
+      fetch(`${process.env.REACT_APP_API_URL}/tweet/${tweet.id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(deleteTweet),
       });
+    } catch (error) {
+      console.log(error);
+    }
   };
+
   return (
     <div>
       <div className={styles.card}>
@@ -44,10 +44,20 @@ function TweetCard({ tweet, fetchTweets }) {
           </div>
           <div className={styles.tweetText}>{tweet.text}</div>
           <div className={styles.buttons}>
-            <button className={styles.tweetButtons}>Comment</button>
-            <button className={styles.tweetButtons}>ReTweet</button>
-            <button className={styles.tweetButtons}>Like</button>
-            <button className={styles.tweetButtons}>Share</button>
+            <button className={styles.tweetButtons}>
+              {" "}
+              <FaRegComment />
+            </button>
+            <button className={styles.tweetButtons}>
+              <AiOutlineRetweet />
+            </button>
+            <button className={styles.tweetButtons}>
+              <FaRegHeart />{" "}
+            </button>
+            <button className={styles.tweetButtons}>
+              {" "}
+              <IoShareOutline />
+            </button>
           </div>
         </Link>
       </div>
