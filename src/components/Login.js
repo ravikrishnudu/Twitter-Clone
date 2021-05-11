@@ -3,7 +3,7 @@ import { useHistory, Link } from "react-router-dom";
 import styles from "./Login.module.css";
 import logo from "./birdlogo.png";
 
-function Login() {
+function Login({ setUser }) {
   const history = useHistory();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -24,9 +24,10 @@ function Login() {
         body: JSON.stringify(user),
       });
       if (response.status === 200) {
-        localStorage.setItem("user", JSON.stringify(user));
-        JSON.parse(localStorage.getItem("user"));
-        console.log(user);
+        const res = await response.json();
+        localStorage.setItem("user", JSON.stringify(res));
+        console.log(res);
+        setUser(res);
         history.push("/tweets");
       }
     } catch (error) {
