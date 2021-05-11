@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import styles from "./Signup.module.css";
+import logo from "./birdlogo.png";
 
 function Signup() {
   const [name, setName] = useState("");
@@ -31,8 +33,14 @@ function Signup() {
       });
   };
   return (
-    <form onSubmit={handleSignUp}>
-      <div>
+    <div className={styles.signup}>
+      <form onSubmit={handleSignUp}>
+        <div>
+          <img src={logo} alt="" />
+        </div>
+        <div className={styles.titleText}>
+          <span>Join Twitter today.</span>
+        </div>
         <div className={styles.signupField}>
           <input
             className={styles.signupInputField}
@@ -63,15 +71,18 @@ function Signup() {
         <div className={styles.signupField}>
           <input
             className={styles.signupInputField}
-            type="text"
+            type="password"
             placeholder="Password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}
           />
         </div>
         <button className={styles.signupButton}>Sign up</button>
-      </div>
-    </form>
+        <Link className={styles.createAccount} to="/login">
+          Already hava an Account? Login
+        </Link>
+      </form>
+    </div>
   );
 }
 

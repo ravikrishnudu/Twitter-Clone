@@ -14,6 +14,7 @@ function TweetCard({ tweet }) {
     const deleteTweet = {
       id: tweet.id,
     };
+
     try {
       fetch(`${process.env.REACT_APP_API_URL}/tweet/${tweet.id}`, {
         method: "DELETE",
@@ -37,7 +38,7 @@ function TweetCard({ tweet }) {
       fetch(`${process.env.REACT_APP_API_URL}/like`, {
         method: "POST",
         headers: {
-          Content_type: "application.json",
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
       });
@@ -49,7 +50,7 @@ function TweetCard({ tweet }) {
   return (
     <div>
       <div className={styles.card}>
-        <Link className={styles.tweetCard} to={`/tweets/username/${tweet.id}`}>
+        <Link className={styles.tweetCard}>
           <div className={styles.userNameId}>
             <div className={styles.name}>Jack Ryan</div>
             <div className={styles.userName}>@jackryan</div>
@@ -66,7 +67,6 @@ function TweetCard({ tweet }) {
           <div className={styles.tweetText}>{tweet.text}</div>
           <div className={styles.buttons}>
             <button className={styles.tweetButtons}>
-              {" "}
               <FaRegComment />
             </button>
             <button className={styles.tweetButtons}>

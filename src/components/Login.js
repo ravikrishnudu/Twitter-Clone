@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import styles from "./Login.module.css";
+import logo from "./birdlogo.png";
 
 function Login() {
   const history = useHistory();
@@ -23,8 +24,9 @@ function Login() {
         body: JSON.stringify(user),
       });
       if (response.status === 200) {
-        const res = await response.json();
-        localStorage.setItem("user", JSON.stringify(res));
+        localStorage.setItem("user", JSON.stringify(user));
+        JSON.parse(localStorage.getItem("user"));
+        console.log(user);
         history.push("/tweets");
       }
     } catch (error) {
@@ -33,10 +35,15 @@ function Login() {
   };
 
   return (
-    <div>
-      <div className={styles.Login}>Login</div>
+    <div className={styles.login}>
       <form onSubmit={handleLogin}>
         <div className={styles.loginFields}>
+          <div>
+            <img src={logo} alt="" />
+          </div>
+          <div className={styles.text}>
+            <h4>Log in to Twitter</h4>
+          </div>
           <div>
             <input
               className={styles.loginInputFields}
@@ -54,10 +61,15 @@ function Login() {
               value={password}
               onChange={(event) => setPassword(event.target.value)}
             />
-            <div className={styles.fogetPassword}>Forget Passord?</div>
           </div>
           <div>
             <button className={styles.loginButton}>Log in</button>
+          </div>
+          <div className={styles.fogetPassword}>
+            <div className={styles.fogetPasswordText}>Forget Passord?</div>
+            <Link to="/" className={styles.signupText}>
+              Signup for Twitter
+            </Link>
           </div>
         </div>
       </form>
