@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import styles from "./NewTweet.module.css";
 import ProfileImage from "./ProfileImage.jpeg";
 
-function NewTweet() {
+function NewTweet({ user }) {
   const [body, setBody] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     const tweet = {
       text: body,
-      userId: 1,
+      userId: user.id,
     };
 
     fetch(`${process.env.REACT_APP_API_URL}/tweet`, {

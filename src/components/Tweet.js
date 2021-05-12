@@ -8,7 +8,7 @@ async function getTweet(id) {
   );
 }
 
-export default function Tweet() {
+export default function Tweet({ user }) {
   const [tweet, setTweet] = useState(null);
 
   let { id } = useParams();
@@ -32,10 +32,11 @@ export default function Tweet() {
   if (!tweet) {
     return <div>Loading..</div>;
   }
+  console.log(user);
   return (
     <div>
       {tweet.map((tweet) => (
-        <TweetCard tweet={tweet} key={tweet.id} />
+        <TweetCard tweet={tweet} user={user} key={tweet.id} />
       ))}
     </div>
   );

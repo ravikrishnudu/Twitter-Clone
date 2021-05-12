@@ -7,23 +7,23 @@ async function getTweets(username) {
     return fetch(
       `${process.env.REACT_APP_API_URL}/tweets?username=${username}`
     ).then((res) => {
-      console.log(res);
+      // console.log(res);
       return res.json();
     });
   } else {
     return fetch(`${process.env.REACT_APP_API_URL}/tweets`).then((res) => {
-      console.log(res);
+      // console.log(res);
       return res.json();
     });
   }
 }
 
-export default function Tweets() {
+export default function Tweets({ user, fetchTweets }) {
   const [tweets, setTweets] = useState("");
 
   let { username } = useParams();
 
-  console.log(username);
+  // console.log(username);
   useEffect(() => {
     getTweets(username).then((tweets) => {
       setTweets(tweets);
@@ -34,10 +34,16 @@ export default function Tweets() {
     return <div>Loading..</div>;
   }
   console.log(tweets);
+  // console.log(user);
   return (
     <div>
       {tweets.map((tweet) => (
-        <TweetCard tweet={tweet} key={tweet.id} />
+        <TweetCard
+          tweet={tweet}
+          user={user}
+          fetchTweets={fetchTweets}
+          key={tweet.id}
+        />
       ))}
     </div>
   );

@@ -51,19 +51,19 @@ function Main() {
 
   return (
     <>
-      <NavBar setUser={setUser} />
+      <NavBar setUser={setUser} user={user} />
       <Switch>
         <Route path="/new">
-          <NewTweet />
+          <NewTweet user={user} />
         </Route>
         <Route path="/tweet/:id">
-          <Tweet />
+          <Tweet user={user} />
         </Route>
         <Route path="/tweets/:username">
-          <Tweets />
+          <Tweets user={user} />
         </Route>
         <Route path="/tweets">
-          <Tweets />
+          <Tweets user={user} />
         </Route>
         <Route>
           <Redirect to="/tweets"> </Redirect>

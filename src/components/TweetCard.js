@@ -8,21 +8,27 @@ import { FaRegHeart, FaRegComment } from "react-icons/fa";
 
 import styles from "./TweetCard.module.css";
 
-function TweetCard({ tweet }) {
-  const user = localStorage.getItem("user");
+function TweetCard({ tweet, user, fetchTweets }) {
+  // const user = localStorage.getItem("user");
   const handleDelete = () => {
     const deleteTweet = {
       id: tweet.id,
     };
 
     try {
-      fetch(`${process.env.REACT_APP_API_URL}/tweet/${tweet.id}`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(deleteTweet),
-      });
+      const response = fetch(
+        `${process.env.REACT_APP_API_URL}/tweet/${tweet.id}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(deleteTweet),
+        }
+      );
+      if (response.status === 200) {
+        fetchTweets();
+      }
     } catch (error) {
       console.log(error);
     }
@@ -52,8 +58,8 @@ function TweetCard({ tweet }) {
       <div className={styles.card}>
         <Link className={styles.tweetCard}>
           <div className={styles.userNameId}>
-            <div className={styles.name}>Jack Ryan</div>
-            <div className={styles.userName}>@jackryan</div>
+            <div className={styles.name}>{user.name}</div>
+            <div className={styles.userName}>@{user.username} </div>
             <div className={styles.options}>
               <Listbox defaultValue="...">
                 {" "}
