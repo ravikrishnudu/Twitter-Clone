@@ -38,12 +38,7 @@ export default function Tweets({ user, fetchTweets }) {
   return (
     <div>
       {tweets.map((tweet) => (
-        <TweetCard
-          tweet={tweet}
-          user={user}
-          fetchTweets={fetchTweets}
-          key={tweet.id}
-        />
+        <TweetCard tweet={tweet} user={user} key={tweet.id} />
       ))}
     </div>
   );

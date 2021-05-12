@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import TweetCard from "./TweetCard";
 
@@ -10,9 +10,9 @@ async function getTweet(id) {
 
 export default function Tweet({ user }) {
   const [tweet, setTweet] = useState(null);
-
+  // const [likeCount, setLikeCount] = useState(0);
   let { id } = useParams();
-  console.log(id);
+  // console.log(id);
   // useEffect(() => {
   //   getTweet(id).then((tweet) => {
   //     setTweet(tweet);
@@ -32,7 +32,7 @@ export default function Tweet({ user }) {
   if (!tweet) {
     return <div>Loading..</div>;
   }
-  console.log(user);
+  // console.log(user);
   return (
     <div>
       {tweet.map((tweet) => (

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Listbox, ListboxOption } from "@reach/listbox";
 import "@reach/listbox/styles.css";
@@ -9,23 +9,22 @@ import { FaRegHeart, FaRegComment } from "react-icons/fa";
 import styles from "./TweetCard.module.css";
 
 function TweetCard({ tweet, user, fetchTweets }) {
-  // const user = localStorage.getItem("user");
+  const [likeCount, setLikeCount] = useState(0);
+
   const handleDelete = () => {
     const deleteTweet = {
-      id: tweet.id,
+      tweetId: tweet.id,
+      userId: user.id,
     };
-
+    console.log(deleteTweet);
     try {
-      const response = fetch(
-        `${process.env.REACT_APP_API_URL}/tweet/${tweet.id}`,
-        {
-          method: "DELETE",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(deleteTweet),
-        }
-      );
+      const response = fetch(`${process.env.REACT_APP_API_URL}/tweet`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(deleteTweet),
+      });
       if (response.status === 200) {
         fetchTweets();
       }
@@ -39,24 +38,28 @@ function TweetCard({ tweet, user, fetchTweets }) {
       tweetId: tweet.id,
       userId: user.id,
     };
-
     try {
-      fetch(`${process.env.REACT_APP_API_URL}/like`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/like`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
       });
+      console.log(response);
+      if (response.status === 201) {
+        console.log(likeCount);
+        setLikeCount(likeCount + 1);
+      }
     } catch (error) {
       console.log(error);
     }
   };
-
+  console.log(likeCount);
   return (
     <div>
       <div className={styles.card}>
-        <Link className={styles.tweetCard}>
+        <Link className={styles.tweetCard} to={`/tweet/${tweet.id}`}>
           <div className={styles.userNameId}>
             <div className={styles.name}>{user.name}</div>
             <div className={styles.userName}>@{user.username} </div>
@@ -80,6 +83,8 @@ function TweetCard({ tweet, user, fetchTweets }) {
             </button>
             <button className={styles.tweetButtons} onClick={likeTweet}>
               <FaRegHeart />
+
+              {likeCount}
             </button>
             <button className={styles.tweetButtons}>
               <IoShareOutline />
