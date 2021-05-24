@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import TweetCard from "./TweetCard";
+import Sidebar from "./Sidebar";
+
+import styles from "./Tweets.module.css";
 
 async function getTweets(username) {
   if (username) {
@@ -36,10 +39,15 @@ export default function Tweets({ user, fetchTweets }) {
   console.log(tweets);
   // console.log(user);
   return (
-    <div>
-      {tweets.map((tweet) => (
-        <TweetCard tweet={tweet} user={user} key={tweet.id} />
-      ))}
+    <div className={styles.container}>
+      <div>
+        <Sidebar />
+      </div>
+      <div>
+        {tweets.map((tweet) => (
+          <TweetCard tweet={tweet} user={user} key={tweet.id} />
+        ))}
+      </div>
     </div>
   );
 }

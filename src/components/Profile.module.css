@@ -1,0 +1,75 @@
+.userContainer {
+  display: flex;
+  justify-content: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+}
+.CoverPhoto {
+  width: 690px;
+  height: 199px;
+}
+.profileImage {
+  width: 80px;
+  height: 80px;
+  border-radius: 50px;
+}
+.profileImageContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.OptionAndFollow {
+  display: flex;
+  align-items: center;
+}
+
+.moreOption {
+  font-size: 30px;
+  margin-right: 5px;
+  color: rgba(29, 161, 242, 1);
+}
+.followButton {
+  color: rgba(29, 161, 242, 1);
+  border: 1px solid rgb(29, 161, 242);
+  border-radius: 50px;
+  cursor: pointer;
+  width: 90px;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 10px;
+}
+.name {
+  font-size: 20px;
+  font-weight: 800;
+  color: rgb(15, 20, 25);
+  margin: 6px 0px 0px 6px;
+}
+.username {
+  font-size: 15px;
+  font-weight: 400;
+  color: rgb(91, 112, 131);
+  line-height: 20px;
+  margin-left: 6px;
+}
+.bio {
+  padding: 16px 16px 16px 0px;
+  font-size: 15px;
+  font-weight: 400px;
+  color: rgb(15, 20, 25);
+  margin-left: 6px;
+}
+.locationAndDate {
+  padding: 0px 16px 16px 0px;
+  color: rgb(91, 112, 131);
+  margin-left: 6px;
+}
+
+.calander,
+.following {
+  margin-left: 18px;
+}
+.follow {
+  padding: 0px 16px 16px 0px;
+  color: rgb(91, 112, 131);
+  margin-left: 6px;
+}

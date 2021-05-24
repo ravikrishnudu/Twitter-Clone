@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "./NewTweet.module.css";
+import Profile from "./Profile";
 import ProfileImage from "./ProfileImage.jpeg";
 
 function NewTweet({ user }) {
@@ -30,6 +31,9 @@ function NewTweet({ user }) {
 
   return (
     <>
+      <div>
+        <Profile user={user} />
+      </div>
       <form onSubmit={handleSubmit}>
         <div className={styles.NewTweet}>
           <div className={styles.Tweet}>

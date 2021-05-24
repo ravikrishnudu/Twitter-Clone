@@ -9,8 +9,8 @@ import { FaRegHeart, FaRegComment } from "react-icons/fa";
 import styles from "./TweetCard.module.css";
 
 function TweetCard({ tweet, user, fetchTweets }) {
-  const [likeCount, setLikeCount] = useState(0);
-
+  const [likeCount, setLikeCount] = useState(tweet.likeCount);
+  // console.log(tweet.likecount);
   const handleDelete = () => {
     const deleteTweet = {
       tweetId: tweet.id,
@@ -33,7 +33,9 @@ function TweetCard({ tweet, user, fetchTweets }) {
     }
   };
 
-  const likeTweet = async () => {
+  const likeTweet = async (e) => {
+    e.preventDefault();
+    e.stopPropagation();
     const data = {
       tweetId: tweet.id,
       userId: user.id,
@@ -48,14 +50,14 @@ function TweetCard({ tweet, user, fetchTweets }) {
       });
       console.log(response);
       if (response.status === 201) {
-        console.log(likeCount);
+        // console.log(likeCount);
         setLikeCount(likeCount + 1);
       }
     } catch (error) {
       console.log(error);
     }
   };
-  console.log(likeCount);
+  // console.log(likeCount);
   return (
     <div>
       <div className={styles.card}>
