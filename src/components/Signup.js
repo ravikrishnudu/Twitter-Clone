@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import faker from "faker";
 import styles from "./Signup.module.css";
 import logo from "./birdlogo.png";
 
@@ -9,13 +10,16 @@ function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const [profileImage] = useState(faker.image.avatar());
+
   const handleSignUp = async (event) => {
     event.preventDefault();
     const user = {
-      name: name,
-      username: username,
-      email: email,
-      password: password,
+      name,
+      username,
+      email,
+      password,
+      profileImage,
     };
     fetch(`${process.env.REACT_APP_API_URL}/user`, {
       method: "POST",

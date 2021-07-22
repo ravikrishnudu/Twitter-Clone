@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import TweetCard from "./TweetCard";
-import Sidebar from "./Sidebar";
+// import Sidebar from "./Sidebar";
 
 import styles from "./Tweets.module.css";
 
@@ -31,7 +31,7 @@ export default function Tweets({ user, fetchTweets }) {
     getTweets(username).then((tweets) => {
       setTweets(tweets);
     });
-  }, []);
+  }, [username]);
 
   if (!tweets) {
     return <div>Loading..</div>;
@@ -40,9 +40,7 @@ export default function Tweets({ user, fetchTweets }) {
   // console.log(user);
   return (
     <div className={styles.container}>
-      <div>
-        <Sidebar />
-      </div>
+      <div>{/* <Sidebar /> */}</div>
       <div>
         {tweets.map((tweet) => (
           <TweetCard tweet={tweet} user={user} key={tweet.id} />

@@ -10,23 +10,25 @@ async function getTweet(id) {
 
 export default function Tweet({ user }) {
   const [tweet, setTweet] = useState(null);
-  // const [likeCount, setLikeCount] = useState(0);
+
   let { id } = useParams();
+
   // console.log(id);
   // useEffect(() => {
   //   getTweet(id).then((tweet) => {
   //     setTweet(tweet);
   //   });
   // }, []);
-  const fetchTweets = () => {
+
+  const fetchTweets = (id) => {
     getTweet(id).then((tweet) => {
       setTweet(tweet);
     });
   };
 
   useEffect(() => {
-    fetchTweets();
-  }, []);
+    fetchTweets(id);
+  }, [id]);
 
   console.log(tweet);
   if (!tweet) {
