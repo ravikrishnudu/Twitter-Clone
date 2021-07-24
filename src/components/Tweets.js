@@ -40,7 +40,7 @@ export default function Tweets({ user, fetchTweets }) {
   // console.log(user);
   return (
     <div className={styles.container}>
-      <div>{/* <Sidebar /> */}</div>
+      {/* <div><Sidebar /></div> */}
       <div>
         {tweets.map((tweet) => (
           <TweetCard tweet={tweet} user={user} key={tweet.id} />

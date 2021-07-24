@@ -49,6 +49,7 @@ function Signup() {
           <input
             className={styles.signupInputField}
             type="text"
+            required
             placeholder="Enter Your Name"
             value={name}
             onChange={(event) => setName(event.target.value)}
@@ -58,6 +59,7 @@ function Signup() {
           <input
             className={styles.signupInputField}
             type="text"
+            required
             placeholder="Enter Your Username"
             value={username}
             onChange={(event) => setUsername(event.target.value)}
@@ -67,7 +69,7 @@ function Signup() {
           <input
             className={styles.signupInputField}
             type="text"
-            placeholder="Mobile number or email address"
+            placeholder="Email"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
           />
@@ -76,6 +78,7 @@ function Signup() {
           <input
             className={styles.signupInputField}
             type="password"
+            required
             placeholder="Password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}

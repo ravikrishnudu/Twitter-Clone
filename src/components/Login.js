@@ -49,7 +49,8 @@ function Login({ setUser }) {
             <input
               className={styles.loginInputFields}
               type="text"
-              placeholder="Phone,email,or username "
+              required
+              placeholder="Username"
               value={username}
               onChange={(event) => setUsername(event.target.value)}
             />
@@ -58,6 +59,7 @@ function Login({ setUser }) {
             <input
               className={styles.loginInputFields}
               type="password"
+              required
               placeholder="Password"
               value={password}
               onChange={(event) => setPassword(event.target.value)}
