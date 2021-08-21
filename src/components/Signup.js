@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import faker from "faker";
 import styles from "./Signup.module.css";
 import logo from "./birdlogo.png";
@@ -9,6 +9,7 @@ function Signup() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  let history = useHistory();
 
   const [profileImage] = useState(faker.image.avatar());
 
@@ -31,6 +32,7 @@ function Signup() {
       .then((res) => res.json)
       .then((data) => {
         console.log("Success:", data);
+        history.push("/login");
       })
       .catch((error) => {
         console.error("Error:", error);
